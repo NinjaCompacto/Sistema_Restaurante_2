@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.sistemarestaurante">
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".Activitys.PedidoBebidaActivity"
+            android:exported="true"
+            android:parentActivityName=".Funcoes.BarActivity"/>
+        <activity
+            android:name=".Activitys.PedidoPratoActivity"
+            android:exported="true"
+            android:parentActivityName=".Funcoes.CozinhaActivity" />
+        <activity
+            android:name=".Activitys.FazerPedidoBebidaActivity"
+            android:exported="true"
+            android:label="Pedido de Bebidas"
+            android:parentActivityName=".Funcoes.GarcomActivity" />
+        <activity
+            android:name=".Adapters.ObsPratoAdapter"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Activitys.AdiconarObsPratoActivity"
+            android:exported="true"
+            android:label="Adicionar Observações"
+            android:parentActivityName=".Funcoes.GarcomActivity" />
+        <activity
+            android:name=".Activitys.AdicionarObsBebidaActivity"
+            android:exported="true"
+            android:label="Adicionar Observações"
+            android:parentActivityName=".Funcoes.GarcomActivity" />
+        <activity
+            android:name=".Activitys.MudarPratoStatusActivity"
+            android:exported="true"
+            android:label="Mudar Disponibilidade"
+            android:parentActivityName=".Funcoes.CozinhaActivity" />
+        <activity
+            android:name=".Activitys.MudarBebidaStatusActivity"
+            android:exported="true"
+            android:label="Mudar Disponibilidade"
+            android:parentActivityName=".Funcoes.BarActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Adapters.PratoPedidosAdapter"
+            android:exported="true"
+            tools:ignore="Instantiatable" />
+        <activity
+            android:name=".Activitys.CadastrarNomeCliente"
+            android:exported="true"
+            android:label="Cadastro Cliente"
+            android:parentActivityName=".Funcoes.GarcomActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activitys.AtualizarNomeCliente"
+            android:exported="true"
+            android:label="Atualizar Cliente"
+            android:parentActivityName=".Funcoes.GarcomActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activitys.FazerPedidosPratoActivity"
+            android:exported="true"
+            android:label="Fazer Pedido"
+            android:parentActivityName=".Funcoes.GarcomActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Funcoes.GarcomActivity"
+            android:exported="true"
+            android:label="Sistema Restaurante"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activitys.CadastroFotoBebida"
+            android:exported="true"
+            android:label="Adicionar Foto" />
+        <activity
+            android:name=".Activitys.CadastroBebidaActivity"
+            android:exported="true"
+            android:label="Cadastro de Bebidas"
+            android:parentActivityName=".Funcoes.BarActivity" />
+        <activity
+            android:name=".Activitys.CadastroMesaActivity"
+            android:exported="true"
+            android:label="Nova Mesa"
+            android:parentActivityName=".Funcoes.GarcomActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Funcoes.BarActivity"
+            android:exported="true"
+            android:label="Bar"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Activitys.CadastroFotoPrato"
+            android:exported="true"
+            android:label="Adicionar Foto"
+            android:parentActivityName=".Activitys.CadastroPratoActicity" />
+        <activity
+            android:name=".Activitys.CadastroPratoActicity"
+            android:exported="true"
+            android:label="Cadastro de Pratos"
+            android:parentActivityName=".Funcoes.CozinhaActivity" />
+        <activity
+            android:name=".Funcoes.CentralReposicaoActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Funcoes.CaixaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Funcoes.EstoqueActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Funcoes.CozinhaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Cadastro_e_login.FotoCadastroActivity"
+            android:exported="true"
+            android:parentActivityName=".Cadastro_e_login.LoginActivity" />
+        <activity
+            android:name=".Cadastro_e_login.CadastroActivity"
+            android:exported="true"
+            android:parentActivityName=".Cadastro_e_login.LoginActivity" />
+        <activity
+            android:name=".Cadastro_e_login.LoginActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/AppTheme.NoActionBar" />
+    </application>
+
+</manifest>
