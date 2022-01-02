@@ -17,32 +17,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activitys.PedidoGarcomActivity"
+            android:exported="true"
+            android:parentActivityName=".Funcoes.GarcomActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
             android:name=".Activitys.PedidoBebidaActivity"
             android:exported="true"
-            android:parentActivityName=".Funcoes.BarActivity"/>
+            android:parentActivityName=".Funcoes.BarActivity" />
         <activity
             android:name=".Activitys.PedidoPratoActivity"
             android:exported="true"
             android:parentActivityName=".Funcoes.CozinhaActivity" />
-        <activity
-            android:name=".Activitys.FazerPedidoBebidaActivity"
-            android:exported="true"
-            android:label="Pedido de Bebidas"
-            android:parentActivityName=".Funcoes.GarcomActivity" />
-        <activity
-            android:name=".Adapters.ObsPratoAdapter"
-            android:exported="true"
-            tools:ignore="Instantiatable" />
-        <activity
-            android:name=".Activitys.AdiconarObsPratoActivity"
-            android:exported="true"
-            android:label="Adicionar Observações"
-            android:parentActivityName=".Funcoes.GarcomActivity" />
-        <activity
-            android:name=".Activitys.AdicionarObsBebidaActivity"
-            android:exported="true"
-            android:label="Adicionar Observações"
-            android:parentActivityName=".Funcoes.GarcomActivity" />
         <activity
             android:name=".Activitys.MudarPratoStatusActivity"
             android:exported="true"
@@ -68,12 +54,6 @@
             android:name=".Activitys.AtualizarNomeCliente"
             android:exported="true"
             android:label="Atualizar Cliente"
-            android:parentActivityName=".Funcoes.GarcomActivity"
-            android:theme="@style/AppTheme" />
-        <activity
-            android:name=".Activitys.FazerPedidosPratoActivity"
-            android:exported="true"
-            android:label="Fazer Pedido"
             android:parentActivityName=".Funcoes.GarcomActivity"
             android:theme="@style/AppTheme" />
         <activity

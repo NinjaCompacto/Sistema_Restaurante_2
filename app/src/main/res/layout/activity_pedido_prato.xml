@@ -4,17 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="5dp"
     android:orientation="vertical"
     tools:context=".Activitys.PedidoPratoActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerPedidoPratoInfo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/recyclershape"
+        android:elevation="5dp"
+        android:padding="5dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
 
         <TextView
@@ -41,6 +50,7 @@
             android:background="@drawable/buttonshapepreparando"
             android:padding="10dp"
             android:text="Preparando"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold" />
 
@@ -52,6 +62,7 @@
             android:background="@drawable/buttonshapepronto"
             android:padding="10dp"
             android:text="Pronto"
+            android:textColor="#FFFFFF"
             android:textSize="12sp"
             android:textStyle="bold" />
 

@@ -19,7 +19,13 @@
         android:id="@+id/recyclerStatusIndisponivel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/recyclershape"
+        android:padding="5dp"
+        android:elevation="5dp"/>
 
     <TextView
         android:id="@+id/textView15"
@@ -35,5 +41,11 @@
         android:id="@+id/recyclerStatusDisponivel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="5dp" />
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/recyclershape"
+        android:padding="5dp"
+        android:elevation="5dp"/>
 </LinearLayout>

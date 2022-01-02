@@ -6,7 +6,8 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:padding="5dp"
-    tools:context=".Adapters.PratoPedidosAdapter">
+    tools:context=".Adapters.PratoPedidosAdapter"
+    android:elevation="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,7 +36,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nome prato"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -43,14 +44,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Valor prato"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
+
         </LinearLayout>
 
         <ImageButton
             android:id="@+id/imageButtonRemover"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_baseline_remove_circle_24"
@@ -65,7 +67,7 @@
             android:gravity="center"
             android:text="0"
             android:textColor="#000000"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <ImageButton
             android:id="@+id/imageButtonAdicionar"
@@ -84,4 +86,18 @@
         android:layout_width="match_parent"
         android:layout_height="2dp"
         android:layout_margin="2dp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayoutOut"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textinputObs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Observação"
+            tools:ignore="TouchTargetSizeCheck" />
+    </com.google.android.material.textfield.TextInputLayout>
 </LinearLayout>

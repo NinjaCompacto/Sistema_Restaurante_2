@@ -55,7 +55,7 @@ public class CadastrarNomeCliente extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         Toast.makeText(getApplicationContext(), "Sucesso ao fazer cadastro !", Toast.LENGTH_LONG).show();
-                        Intent i = new Intent(getApplicationContext(),FazerPedidosPratoActivity.class);
+                        Intent i = new Intent(getApplicationContext(),PedidoGarcomActivity.class);
                         i.putExtra("mesa",mesa);
                         startActivity(i);
                         finish();

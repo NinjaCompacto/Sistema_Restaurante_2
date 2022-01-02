@@ -34,7 +34,7 @@
                 android:layout_height="wrap_content"
                 android:text="Nome Prato"
                 android:textColor="#000000"
-                android:textSize="20sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -42,7 +42,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Valor Prato"
-                android:textSize="16sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <TextView
@@ -54,6 +54,7 @@
             android:gravity="center"
             android:text="Disponível"
             android:textColor="#1ADF0D"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </LinearLayout>

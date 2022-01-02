@@ -1,36 +1,31 @@
 package com.example.sistemarestaurante.Funcoes;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.sistemarestaurante.Activitys.AtualizarNomeCliente;
 import com.example.sistemarestaurante.Activitys.CadastrarNomeCliente;
 import com.example.sistemarestaurante.Activitys.CadastroMesaActivity;
-import com.example.sistemarestaurante.Activitys.FazerPedidosPratoActivity;
+import com.example.sistemarestaurante.Activitys.PedidoGarcomActivity;
 import com.example.sistemarestaurante.Adapters.MesasAdapter;
 import com.example.sistemarestaurante.Cadastro_e_login.LoginActivity;
 import com.example.sistemarestaurante.Firebase.ConfiguracaoFirebase;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.Toast;
 
 import com.example.sistemarestaurante.Helper.RecyclerViewClickListener;
 import com.example.sistemarestaurante.Model.Mesa;
 import com.example.sistemarestaurante.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,7 +77,7 @@ public class GarcomActivity extends AppCompatActivity {
                     startActivity(i);
                 }
                 else {
-                    Intent i = new Intent(getApplicationContext(), FazerPedidosPratoActivity.class);
+                    Intent i = new Intent(getApplicationContext(), PedidoGarcomActivity.class);
                     i.putExtra("mesa", mesa);
                     startActivity(i);
                 }

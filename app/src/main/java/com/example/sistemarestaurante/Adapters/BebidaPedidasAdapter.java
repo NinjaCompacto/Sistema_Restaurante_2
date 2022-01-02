@@ -2,6 +2,9 @@ package com.example.sistemarestaurante.Adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,9 +17,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.sistemarestaurante.Model.Bebida;
 import com.example.sistemarestaurante.Model.BebidaPedida;
-import com.example.sistemarestaurante.Model.Pedido;
 import com.example.sistemarestaurante.Model.PratoPedido;
 import com.example.sistemarestaurante.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,8 +54,9 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
             bebidaPedida.setQuantidade(0);
             bebidaPedidasquantidade.add(bebidaPedida);
             holder.textNomeBebida.setText(bebida.getNomeBebida());
-            holder.textValorBebida.setText(bebida.getValor());
+            holder.textValorBebida.setText("R$ "+bebida.getValor());
             holder.textQuantidade.setText(String.valueOf(0));
+
 
             if (bebida.getFoto() != null) {
                 Glide.with(context).load(bebida.getFoto()).into(holder.circleImageBebida);
@@ -63,10 +68,20 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
                 int quantidade = Integer.parseInt(holder.textQuantidade.getText().toString());
                 int novaquantidade = quantidade - 1;
                 if (quantidade >= 0) {
+                    holder.editTextObs.setVisibility(View.VISIBLE);
+                    holder.textInputLayoutout.setVisibility(View.VISIBLE);
                     BebidaPedida BebidaPedido1 = bebidaPedidasquantidade.get(position);
                     BebidaPedido1.setQuantidade(novaquantidade);
                     holder.textQuantidade.setText(String.valueOf(novaquantidade));
                 }
+                if (quantidade == 0 || novaquantidade == 0) {
+                    holder.editTextObs.setVisibility(View.GONE);
+                    holder.textInputLayoutout.setVisibility(View.GONE);
+
+                    BebidaPedida bebidaPedida = bebidaPedidasquantidade.get(position);
+                    bebidaPedida.setObs(null);
+                }
+
 
             }
         });
@@ -82,6 +97,36 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
                     BebidaPedido1.setQuantidade(novaquantidade);
                     //pratosequantidades.add(pratoPedido1);
                 }
+                if (novaquantidade > 0){
+                    holder.editTextObs.setVisibility(View.VISIBLE);
+                    holder.textInputLayoutout.setVisibility(View.VISIBLE);
+
+                    holder.editTextObs.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            String textObs = charSequence.toString();
+                            BebidaPedida bebidaPedida = bebidaPedidasquantidade.get(position);
+                            if (!textObs.isEmpty()){
+                                bebidaPedida.setObs(textObs);
+                            }
+                            else {
+                                bebidaPedida.setObs(null);
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
+                }
+
+
             }
         });
     }
@@ -95,6 +140,8 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
         TextView textQuantidade, textNomeBebida, textValorBebida;
         CircleImageView circleImageBebida;
         ImageButton buttonAdicionar,buttonRemover;
+        TextInputEditText editTextObs;
+        TextInputLayout textInputLayoutout;
 
         public MyViewHolderBebidas(@NonNull View itemView) {
             super(itemView);
@@ -104,6 +151,8 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
             circleImageBebida = itemView.findViewById(R.id.circleImagePrato);
             buttonAdicionar = itemView.findViewById(R.id.imageButtonAdicionar);
             buttonRemover = itemView.findViewById(R.id.imageButtonRemover);
+            editTextObs = itemView.findViewById(R.id.textinputObs);
+            textInputLayoutout = itemView.findViewById(R.id.textInputLayoutOut);
         }
     }
 

@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/drawable/ic_baseline_add_circle_24.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/drawable/ic_baseline_check_24.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/drawable/ic_baseline_remove_circle_24.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/drawable/recyclershape.xml" value="0.3880208333333333" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_cadastro.xml" value="0.3523550724637681" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_central_reposicao.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_cozinha.xml" value="0.3523550724637681" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_estoque.xml" value="0.3523550724637681" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_fazer_pedido_bebida.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_fazer_pedidos_prato.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_foto_cadastro.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_garcom.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_login.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_main.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_mudar_status.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_mudar_status_bebida.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_pedido_bebida.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_pedido_garcom.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/activity_pedido_prato.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_lista_pratos_pedidos_cozinha.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_mesas.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_obs_prato.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_pedido_prato.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_prato_pedidos.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/adapter_status_disponivel.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/content_bar_pedido.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/content_fazer_pedido_bebida.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/content_mudar_status.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/layout/divisor.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/menu/menubar.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/menu/menucozinha.xml" value="0.371875" />
+        <entry key="..\:/Users/jvnso/Desktop/Projetos/SistemaRestaurante/app/src/main/res/menu/menugarcom.xml" value="0.371875" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

@@ -4,6 +4,9 @@ package com.example.sistemarestaurante.Adapters;
 import android.annotation.SuppressLint;
 import android.content.Context;
 
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,6 +22,8 @@ import com.bumptech.glide.Glide;
 import com.example.sistemarestaurante.Model.Prato;
 import com.example.sistemarestaurante.Model.PratoPedido;
 import com.example.sistemarestaurante.R;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 
 import java.util.ArrayList;
@@ -66,6 +71,13 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
                         pratoPedido1.setQuantidade(novaquantidade);
                         holder.textQuantidade.setText(String.valueOf(novaquantidade));
                     }
+                if (quantidade == 0 || novaquantidade == 0) {
+                    holder.editTextObs.setVisibility(View.GONE);
+                    holder.textInputLayoutout.setVisibility(View.GONE);
+
+                    PratoPedido pratoPedido1 = pratosequantidades.get(position);
+                    pratoPedido1.setObs(null);
+                }
 
             }
         });
@@ -79,6 +91,35 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
                 if (quantidade >= 0){
                     PratoPedido pratoPedido1 = pratosequantidades.get(position);
                     pratoPedido1.setQuantidade(novaquantidade);
+                }
+                if (novaquantidade > 0){
+                    holder.editTextObs.setVisibility(View.VISIBLE);
+                    holder.textInputLayoutout.setVisibility(View.VISIBLE);
+
+                    holder.editTextObs.addTextChangedListener(new TextWatcher() {
+                        @Override
+                        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+                        }
+
+                        @Override
+                        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                            String textObs = charSequence.toString();
+                            PratoPedido pratoPedido1 = pratosequantidades.get(position);
+                            if (!textObs.isEmpty()) {
+                                pratoPedido1.setObs(textObs);
+
+                            }
+                            else {
+                                pratoPedido1.setObs(null);
+                            }
+                        }
+
+                        @Override
+                        public void afterTextChanged(Editable editable) {
+
+                        }
+                    });
                 }
             }
         });
@@ -98,6 +139,9 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
         TextView textQuantidade,textNomePrato,textValorPrato;
         CircleImageView circleImagePrato;
         ImageButton buttonAdicionar,buttonRemover;
+        TextInputEditText editTextObs;
+        TextInputLayout textInputLayoutout;
+
         public MyViewHolderPratos(@NonNull View itemView) {
             super(itemView);
             textQuantidade = itemView.findViewById(R.id.textQuantidadePrato);
@@ -106,6 +150,8 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
             circleImagePrato = itemView.findViewById(R.id.circleImagePrato);
             buttonAdicionar = itemView.findViewById(R.id.imageButtonAdicionar);
             buttonRemover = itemView.findViewById(R.id.imageButtonRemover);
+            editTextObs = itemView.findViewById(R.id.textinputObs);
+            textInputLayoutout = itemView.findViewById(R.id.textInputLayoutOut);
         }
     }
 
