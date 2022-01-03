@@ -40,6 +40,7 @@ public class StatusDisponivelAdapter extends RecyclerView.Adapter<StatusDisponiv
             Prato prato = pratosDisponiveis.get(position);
             holder.texNomePrato.setText(prato.getNomePrato());
             holder.textValor.setText("R$ " + prato.getValor());
+            holder.textInfo.setText(prato.getInfo());
 
             if(prato.getFoto() != null){
                 Glide.with(context).load(prato.getFoto()).into(holder.circleImageView);
@@ -55,14 +56,14 @@ public class StatusDisponivelAdapter extends RecyclerView.Adapter<StatusDisponiv
     public class MyViewHolderDisponivel extends RecyclerView.ViewHolder {
 
         private CircleImageView circleImageView;
-        private TextView texNomePrato, textValor;
+        private TextView texNomePrato, textValor,textInfo;
 
     public MyViewHolderDisponivel(@NonNull View itemView) {
         super(itemView);
         circleImageView = itemView.findViewById(R.id.circleImagePratoStatus);
         texNomePrato = itemView.findViewById(R.id.textNomePratoDisponivel);
         textValor = itemView.findViewById(R.id.textValorPratoDisponivel);
-
+        textInfo =itemView.findViewById(R.id.textMudarStatusInfo);
 
     }
 }

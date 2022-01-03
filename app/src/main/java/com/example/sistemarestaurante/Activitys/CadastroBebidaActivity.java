@@ -14,7 +14,7 @@ import com.example.sistemarestaurante.R;
 public class CadastroBebidaActivity extends AppCompatActivity {
 
     //XML
-    private EditText editNomeBebida,editValorBebida;
+    private EditText editNomeBebida,editValorBebida,editInfoBebidaCadastro;
     private Button buttonAdicionarBebida;
 
     //Model
@@ -28,6 +28,7 @@ public class CadastroBebidaActivity extends AppCompatActivity {
         editNomeBebida = findViewById(R.id.editNomeBebida);
         editValorBebida = findViewById(R.id.editValorBebida);
         buttonAdicionarBebida = findViewById(R.id.buttonAdicionarBebida);
+        editInfoBebidaCadastro = findViewById(R.id.editInfoBebidaCadastro);
 
 
         //seta ação de abrir tela de foto
@@ -37,9 +38,12 @@ public class CadastroBebidaActivity extends AppCompatActivity {
                 //setando valores da bebida
                 String nomebebida = editNomeBebida.getText().toString();
                 String valorbebida = editValorBebida.getText().toString();
+                String info = editInfoBebidaCadastro.getText().toString();
+
                 bebida.setNomeBebida(nomebebida);
                 bebida.setValor(valorbebida);
                 bebida.setIsDisponivel("true");
+                bebida.setInfo(info);
 
                 //iniciando uma nova activity
                 Intent i = new Intent(CadastroBebidaActivity.this,CadastroFotoBebida.class);

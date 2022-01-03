@@ -40,6 +40,7 @@ public class ListaPratosPedidosAdapter extends RecyclerView.Adapter<ListaPratosP
 
             holder.textNomeComida.setText(pratoPedido.getPrato().getNomePrato());
             holder.textQuantidadeComida.setText(pratoPedido.getQuantidade() + "x");
+            holder.textInfo.setText(pratoPedido.getPrato().getInfo());
 
 
 
@@ -62,7 +63,7 @@ public class ListaPratosPedidosAdapter extends RecyclerView.Adapter<ListaPratosP
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textNomeComida,textQuantidadeComida,textObsComida;
+        private TextView textNomeComida,textQuantidadeComida,textObsComida,textInfo;
         private CircleImageView circleImageView;
 
         public MyViewHolder(@NonNull View itemView) {
@@ -71,6 +72,7 @@ public class ListaPratosPedidosAdapter extends RecyclerView.Adapter<ListaPratosP
             textQuantidadeComida = itemView.findViewById(R.id.textQuantidadeComida);
             textObsComida = itemView.findViewById(R.id.textObsComida);
             circleImageView =  itemView.findViewById(R.id.circleImageComidaPedido);
+            textInfo = itemView.findViewById(R.id.textInfoPedidoLista);
         }
     }
 }

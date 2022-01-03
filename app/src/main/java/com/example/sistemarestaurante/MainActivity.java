@@ -47,8 +47,6 @@ public class MainActivity extends AppCompatActivity {
 
         //Configurações iniciais
         textViewBoasVindas = findViewById(R.id.textViewBoasVindas);
-        createNotificationChannel();
-
 
 
         //recupearando email do usuario logado e  tranformando em seu id
@@ -59,17 +57,16 @@ public class MainActivity extends AppCompatActivity {
         funcionariosRef.get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if(!task.isSuccessful()){
+                if (!task.isSuccessful()) {
                     Log.d("firebase", "Error getting data", task.getException());
-                }
-                else {
+                } else {
                     Log.d("firebase", String.valueOf(task.getResult().getValue()));
                     usuario = task.getResult().getValue(Usuario.class);
-                    textViewBoasVindas.setText("Bem-Vindo, "+ usuario.getNome() + " !");
-                    Log.d("firebase",usuario.getFuncao());
+                    textViewBoasVindas.setText("Bem-Vindo, " + usuario.getNome() + " !");
+                    Log.d("firebase", usuario.getFuncao());
 
-                    switch (usuario.getFuncao()){
-                        case "Garçom" :
+                    switch (usuario.getFuncao()) {
+                        case "Garçom":
                             Intent iGarçom = new Intent(MainActivity.this, GarcomActivity.class);
                             finish();
                             startActivity(iGarçom);
@@ -80,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(iEstoque);
                             break;
                         case "Bar":
-                            Intent iBar = new Intent(MainActivity.this,BarActivity.class);
+                            Intent iBar = new Intent(MainActivity.this, BarActivity.class);
                             finish();
                             startActivity(iBar);
                             break;
@@ -90,11 +87,11 @@ public class MainActivity extends AppCompatActivity {
                             startActivity(iCozinha);
                             break;
                         case "Central de Reposição":
-                            Intent iCentral= new Intent(MainActivity.this, CentralReposicaoActivity.class);
+                            Intent iCentral = new Intent(MainActivity.this, CentralReposicaoActivity.class);
                             finish();
                             startActivity(iCentral);
-                        case "Caixa" :
-                            Intent iCaixa= new Intent(MainActivity.this, CaixaActivity.class);
+                        case "Caixa":
+                            Intent iCaixa = new Intent(MainActivity.this, CaixaActivity.class);
                             finish();
                             startActivity(iCaixa);
                     }
@@ -103,22 +100,5 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-    }
-
-    private void createNotificationChannel() {
-        // Create the NotificationChannel, but only on API 26+ because
-        // the NotificationChannel class is new and not in the support library
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = getString(R.string.channel_name);
-            String description = getString(R.string.channel_description);
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("1", name, importance);
-            channel.setDescription(description);
-            // Register the channel with the system; you can't change the importance
-            // or other notification behaviors after this
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-        }
     }
 }

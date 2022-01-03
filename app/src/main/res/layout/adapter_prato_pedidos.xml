@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/circleImagePrato"
             android:layout_width="96dp"
             android:layout_height="96dp"
@@ -46,6 +46,15 @@
                 android:text="Valor prato"
                 android:textSize="20sp" />
 
+            <TextView
+                android:id="@+id/textInfoPedida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="INFO"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
         </LinearLayout>
 
         <ImageButton
@@ -73,7 +82,7 @@
             android:id="@+id/imageButtonAdicionar"
             android:layout_width="wrap_content"
             android:layout_height="48dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:layout_weight="1"
             android:background="@android:color/transparent"
             app:srcCompat="@drawable/ic_baseline_add_circle_24"

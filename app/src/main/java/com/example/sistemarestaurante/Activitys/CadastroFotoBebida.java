@@ -4,15 +4,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sistemarestaurante.Firebase.ConfiguracaoFirebase;
+import com.example.sistemarestaurante.Helper.Permissao;
 import com.example.sistemarestaurante.Model.Bebida;
 import com.example.sistemarestaurante.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +27,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -35,8 +39,16 @@ public class CadastroFotoBebida extends AppCompatActivity {
 
     //XMl
     private CircleImageView circleImageBebida;
+    private ImageButton imageButtonCameraBebidaCadastro, imageButtonGaleriaCadastro;
     //Model
     private Bebida bebida;
+    private String [] permissoesnecessarias = new String[] {
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+    };
+    private final static int SELECAO_CAMERA = 400;
+    private final static int SELECAO_GALERIA = 500;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +57,9 @@ public class CadastroFotoBebida extends AppCompatActivity {
 
         //configurações iniciais
         circleImageBebida = findViewById(R.id.circleImageBebida);
+        imageButtonCameraBebidaCadastro = findViewById(R.id.imageButtonCameraBebidaCadastro);
+        imageButtonGaleriaCadastro = findViewById(R.id.imageButtonGaleriaBebidaCadastro);
+        Permissao.validarPermissoes(permissoesnecessarias,this,3);
 
         //recuperando dados da bebida
         Bundle bundle = getIntent().getExtras();
@@ -53,12 +68,21 @@ public class CadastroFotoBebida extends AppCompatActivity {
         }
 
         //seta evento de click para o circleimageviw
-        circleImageBebida.setOnClickListener(new View.OnClickListener() {
+        imageButtonCameraBebidaCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (i.resolveActivity(getPackageManager())!=null){
-                    startActivityForResult(i,300);
+                    startActivityForResult(i, SELECAO_CAMERA);
+                }
+            }
+        });
+        imageButtonGaleriaCadastro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (i.resolveActivity(getPackageManager())!= null) {
+                    startActivityForResult(i, SELECAO_GALERIA);
                 }
             }
         });
@@ -69,18 +93,26 @@ public class CadastroFotoBebida extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK){
 
-            Bitmap bitmap = null;
+            Bitmap imagem = null;
             switch (requestCode){
-                case 300:
-                    bitmap = (Bitmap) data.getExtras().get("data");
+                case SELECAO_CAMERA:
+                    imagem = (Bitmap) data.getExtras().get("data");
+                    break;
+                case SELECAO_GALERIA:
+                    Uri uriImagemSelecionada = data.getData();
+                    try {
+                        imagem = MediaStore.Images.Media.getBitmap(getContentResolver(),uriImagemSelecionada);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
             }
-            if (bitmap != null){
-                circleImageBebida.setImageBitmap(bitmap);
+            if (imagem != null){
+                circleImageBebida.setImageBitmap(imagem);
 
                 //recupera dados da imagem para o firebase
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG,70,baos);
+                imagem.compress(Bitmap.CompressFormat.JPEG,70,baos);
                 byte[] dadosimagem = baos.toByteArray();
 
                 //salva imagem no storage

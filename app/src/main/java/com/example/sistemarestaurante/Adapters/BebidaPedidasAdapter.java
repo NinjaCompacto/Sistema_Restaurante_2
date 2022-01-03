@@ -56,6 +56,7 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
             holder.textNomeBebida.setText(bebida.getNomeBebida());
             holder.textValorBebida.setText("R$ "+bebida.getValor());
             holder.textQuantidade.setText(String.valueOf(0));
+            holder.textInfo.setText(bebida.getInfo());
 
 
             if (bebida.getFoto() != null) {
@@ -137,7 +138,7 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
     }
 
     public class MyViewHolderBebidas extends RecyclerView.ViewHolder{
-        TextView textQuantidade, textNomeBebida, textValorBebida;
+        TextView textQuantidade, textNomeBebida, textValorBebida,textInfo;
         CircleImageView circleImageBebida;
         ImageButton buttonAdicionar,buttonRemover;
         TextInputEditText editTextObs;
@@ -153,6 +154,7 @@ public class BebidaPedidasAdapter extends RecyclerView.Adapter<BebidaPedidasAdap
             buttonRemover = itemView.findViewById(R.id.imageButtonRemover);
             editTextObs = itemView.findViewById(R.id.textinputObs);
             textInputLayoutout = itemView.findViewById(R.id.textInputLayoutOut);
+            textInfo = itemView.findViewById(R.id.textInfoPedida);
         }
     }
 

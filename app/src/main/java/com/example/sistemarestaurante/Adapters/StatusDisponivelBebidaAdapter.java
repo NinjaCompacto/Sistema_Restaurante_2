@@ -39,6 +39,7 @@ public class StatusDisponivelBebidaAdapter extends RecyclerView.Adapter<StatusDi
         Bebida bebida = bebidasDisponiveis.get(position);
         holder.texNomePrato.setText(bebida.getNomeBebida());
         holder.textValor.setText("R$ " + bebida.getValor());
+        holder.textInfo.setText(bebida.getInfo());
 
         if(bebida.getFoto() != null){
             Glide.with(context).load(bebida.getFoto()).into(holder.circleImageView);
@@ -54,14 +55,14 @@ public class StatusDisponivelBebidaAdapter extends RecyclerView.Adapter<StatusDi
     public class MyViewHolderDisponivel extends RecyclerView.ViewHolder {
 
         private CircleImageView circleImageView;
-        private TextView texNomePrato, textValor;
+        private TextView texNomePrato, textValor,textInfo;
 
         public MyViewHolderDisponivel(@NonNull View itemView) {
             super(itemView);
             circleImageView = itemView.findViewById(R.id.circleImagePratoStatus);
             texNomePrato = itemView.findViewById(R.id.textNomePratoDisponivel);
             textValor = itemView.findViewById(R.id.textValorPratoDisponivel);
-
+            textInfo = itemView.findViewById(R.id.textMudarStatusInfo);
 
         }
     }

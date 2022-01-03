@@ -10,11 +10,20 @@ public class Bebida implements Serializable {
     private String NomeBebida;
     private String IsDisponivel;
     private String Foto;
+    private String info;
 
     public void salvarBebida (){
         DatabaseReference databaseReference = ConfiguracaoFirebase.getDatabaseReference();
         DatabaseReference bebidaref = databaseReference.child("bebidas").child(getNomeBebida());
         bebidaref.setValue(this);
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public String getValor() {

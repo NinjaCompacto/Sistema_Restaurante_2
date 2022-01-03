@@ -5,15 +5,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.sistemarestaurante.Firebase.ConfiguracaoFirebase;
+import com.example.sistemarestaurante.Helper.Permissao;
 import com.example.sistemarestaurante.Model.Prato;
 import com.example.sistemarestaurante.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -25,6 +28,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -32,11 +36,20 @@ public class CadastroFotoPrato extends AppCompatActivity {
 
     //XMl
     private CircleImageView circleImagePrato;
+    private ImageButton imageButtonCameraPrato, imageButtonGaleriaPrato;
     //model
     private Prato prato;
+    private static final int SELECAO_CAMERA = 200;
+    private static final int SELECAO_GALERIA = 300;
+
     //Firebase
     private  DatabaseReference databaseReference = ConfiguracaoFirebase.getDatabaseReference();
     private StorageReference storageReference = ConfiguracaoFirebase.getStorageReference();
+
+    private String [] permissoesnecessarias = new String[] {
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +58,9 @@ public class CadastroFotoPrato extends AppCompatActivity {
 
         //configurações inicias
         circleImagePrato = findViewById(R.id.circleImageBebida);
+        imageButtonCameraPrato = findViewById(R.id.imageButtonCameraPrato);
+        imageButtonGaleriaPrato = findViewById(R.id.imageButtonGaleriaPrato);
+        Permissao.validarPermissoes(permissoesnecessarias,this,2);
 
 
         //recuperando extras
@@ -54,12 +70,21 @@ public class CadastroFotoPrato extends AppCompatActivity {
         }
 
         //abrindo camera para setar imagem
-        circleImagePrato.setOnClickListener(new View.OnClickListener() {
+        imageButtonCameraPrato.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 if (i.resolveActivity(getPackageManager())!= null) {
-                    startActivityForResult(i, 200);
+                    startActivityForResult(i, SELECAO_CAMERA);
+                }
+            }
+        });
+        imageButtonGaleriaPrato.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_PICK,MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                if (i.resolveActivity(getPackageManager())!= null) {
+                    startActivityForResult(i, SELECAO_GALERIA);
                 }
             }
         });
@@ -73,8 +98,16 @@ public class CadastroFotoPrato extends AppCompatActivity {
             Bitmap imagem = null;
 
             switch (requestCode){
-                case 200:
+                case SELECAO_CAMERA:
                     imagem = (Bitmap) data.getExtras().get("data");
+                    break;
+                case SELECAO_GALERIA:
+                    Uri uriImagemSelecionada = data.getData();
+                    try {
+                        imagem = MediaStore.Images.Media.getBitmap(getContentResolver(),uriImagemSelecionada);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                     break;
             }
             if(imagem != null){

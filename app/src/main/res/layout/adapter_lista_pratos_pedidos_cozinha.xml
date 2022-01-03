@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@android:color/white"
     android:gravity="center|top"
     android:padding="5dp">
 
@@ -11,9 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/recyclershape"
+        android:elevation="5dp"
         android:orientation="horizontal"
-        android:padding="10dp"
-        android:elevation="5dp">
+        android:padding="10dp">
 
 
         <ImageView

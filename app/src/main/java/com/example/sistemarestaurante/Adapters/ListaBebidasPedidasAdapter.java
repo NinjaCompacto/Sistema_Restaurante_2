@@ -40,6 +40,7 @@ public class ListaBebidasPedidasAdapter extends RecyclerView.Adapter<ListaBebida
         //seta elementos xml
         holder.textNomeBebida.setText(bebida.getBebida().getNomeBebida());
         holder.textQuantidadeBebida.setText(String.valueOf(bebida.getQuantidade()));
+        holder.textInfo.setText(bebida.getBebida().getInfo());
         if (bebida.getObs() != null) {
             holder.textObsBebida.setVisibility(View.VISIBLE);
             holder.textObsBebida.setText("OBS: " + bebida.getObs());
@@ -58,7 +59,7 @@ public class ListaBebidasPedidasAdapter extends RecyclerView.Adapter<ListaBebida
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView textNomeBebida, textQuantidadeBebida, textObsBebida;
+        private TextView textNomeBebida, textQuantidadeBebida, textObsBebida,textInfo;
         private CircleImageView circleImageView;
 
     public MyViewHolder(@NonNull View itemView) {
@@ -67,6 +68,7 @@ public class ListaBebidasPedidasAdapter extends RecyclerView.Adapter<ListaBebida
         textQuantidadeBebida = itemView.findViewById(R.id.textQuantidadeComida);
         textObsBebida = itemView.findViewById(R.id.textObsComida);
         circleImageView =  itemView.findViewById(R.id.circleImageComidaPedido);
+        textInfo = itemView.findViewById(R.id.textInfoPedidoLista);
     }
 }
 }

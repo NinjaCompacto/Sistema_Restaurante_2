@@ -44,6 +44,7 @@ public class StatusIndisponivelAdapter  extends RecyclerView.Adapter<StatusIndis
         holder.textValor.setText("R$ " + prato.getValor());
         holder.textStatus.setTextColor(Color.RED);
         holder.textStatus.setText("Indisponível");
+        holder.textInfo.setText(prato.getInfo());
 
 
         if(prato.getFoto() != null){
@@ -59,7 +60,7 @@ public class StatusIndisponivelAdapter  extends RecyclerView.Adapter<StatusIndis
 
     public class MyViewHolderIndisponivel extends RecyclerView.ViewHolder {
         private CircleImageView circleImageView;
-        private TextView texNomePrato, textValor,textStatus;
+        private TextView texNomePrato, textValor,textStatus,textInfo;
 
     public MyViewHolderIndisponivel(@NonNull View itemView) {
         super(itemView);
@@ -68,6 +69,7 @@ public class StatusIndisponivelAdapter  extends RecyclerView.Adapter<StatusIndis
         texNomePrato = itemView.findViewById(R.id.textNomePratoDisponivel);
         textValor = itemView.findViewById(R.id.textValorPratoDisponivel);
         textStatus = itemView.findViewById(R.id.textStatusPrato);
+        textInfo = itemView.findViewById(R.id.textMudarStatusInfo);
     }
 }
 }

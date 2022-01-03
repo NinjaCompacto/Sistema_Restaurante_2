@@ -10,12 +10,21 @@ public class Prato implements Serializable {
     private String valor;
     private String NomePrato;
     private String IsDisponivel;
+    private String info;
     private String Foto;
 
     public void salvarPrato (){
         DatabaseReference databaseReference = ConfiguracaoFirebase.getDatabaseReference();
         DatabaseReference pratoref = databaseReference.child("pratos").child(getNomePrato());
         pratoref.setValue(this);
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     public String  getValor() {

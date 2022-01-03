@@ -6,7 +6,6 @@ import android.content.Context;
 
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -60,6 +59,7 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
         holder.textNomePrato.setText(prato.getNomePrato());
         holder.textValorPrato.setText("R$ " + prato.getValor());
         holder.textQuantidade.setText(String.valueOf(0));
+        holder.textInfo.setText(prato.getInfo());
 
         holder.buttonRemover.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +136,7 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
     }
 
     public class MyViewHolderPratos extends RecyclerView.ViewHolder{
-        TextView textQuantidade,textNomePrato,textValorPrato;
+        TextView textQuantidade,textNomePrato,textValorPrato,textInfo;
         CircleImageView circleImagePrato;
         ImageButton buttonAdicionar,buttonRemover;
         TextInputEditText editTextObs;
@@ -152,6 +152,7 @@ public class PratoPedidosAdapter extends RecyclerView.Adapter<PratoPedidosAdapte
             buttonRemover = itemView.findViewById(R.id.imageButtonRemover);
             editTextObs = itemView.findViewById(R.id.textinputObs);
             textInputLayoutout = itemView.findViewById(R.id.textInputLayoutOut);
+            textInfo = itemView.findViewById(R.id.textInfoPedida);
         }
     }
 
