@@ -8,7 +8,7 @@
         android:required="true" />
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -18,10 +18,14 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activitys.HistoricoPedidosActivity"
+            android:exported="true"
+            android:label="Histórico"/>
+        <activity
             android:name=".Activitys.PedidoGarcomActivity"
             android:exported="true"
             android:parentActivityName=".Funcoes.GarcomActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activitys.PedidoBebidaActivity"
             android:exported="true"
@@ -33,12 +37,12 @@
         <activity
             android:name=".Activitys.MudarPratoStatusActivity"
             android:exported="true"
-            android:label="Mudar Disponibilidade"
+            android:label="Mudar Status"
             android:parentActivityName=".Funcoes.CozinhaActivity" />
         <activity
             android:name=".Activitys.MudarBebidaStatusActivity"
             android:exported="true"
-            android:label="Mudar Disponibilidade"
+            android:label="Mudar Status"
             android:parentActivityName=".Funcoes.BarActivity"
             android:theme="@style/AppTheme" />
         <activity
@@ -80,7 +84,7 @@
         <activity
             android:name=".Funcoes.BarActivity"
             android:exported="true"
-            android:label="Bar"
+            android:label="Sistema Restaurante"
             android:theme="@style/AppTheme" />
         <activity
             android:name=".Activitys.CadastroFotoPrato"
@@ -103,7 +107,8 @@
             android:exported="true" />
         <activity
             android:name=".Funcoes.CozinhaActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Sistema Restaurante"/>
         <activity
             android:name=".Cadastro_e_login.FotoCadastroActivity"
             android:exported="true"

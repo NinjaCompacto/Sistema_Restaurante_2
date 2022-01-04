@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.sistemarestaurante.Activitys.CadastroPratoActicity;
+import com.example.sistemarestaurante.Activitys.HistoricoPedidosActivity;
 import com.example.sistemarestaurante.Activitys.MudarPratoStatusActivity;
 import com.example.sistemarestaurante.Activitys.PedidoPratoActivity;
 import com.example.sistemarestaurante.Adapters.ListaPedidosAdapter;
@@ -164,6 +165,10 @@ public class CozinhaActivity extends AppCompatActivity {
             case R.id.menuStatus:
                 Intent istatus = new Intent(CozinhaActivity.this , MudarPratoStatusActivity.class);
                 startActivity(istatus);
+                break;
+            case R.id.menuHistorico:
+                Intent iHistorico = new Intent(CozinhaActivity.this, HistoricoPedidosActivity.class);
+                startActivity(iHistorico);
                 break;
         }
         return super.onOptionsItemSelected(item);

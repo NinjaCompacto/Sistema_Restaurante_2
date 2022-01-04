@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sistemarestaurante.Activitys.CadastroBebidaActivity;
+import com.example.sistemarestaurante.Activitys.HistoricoPedidosActivity;
 import com.example.sistemarestaurante.Activitys.PedidoBebidaActivity;
 import com.example.sistemarestaurante.Adapters.ListaPedidosAdapter;
 import com.example.sistemarestaurante.Cadastro_e_login.LoginActivity;
@@ -117,6 +118,10 @@ public class BarActivity extends AppCompatActivity {
             case R.id.menuStatus:
                 Intent i1 = new Intent(BarActivity.this, MudarBebidaStatusActivity.class);
                 startActivity(i1);
+                break;
+            case R.id.menuHistorico:
+                Intent iHistorico = new Intent(BarActivity.this, HistoricoPedidosActivity.class);
+                startActivity(iHistorico);
                 break;
         }
         return super.onOptionsItemSelected(item);
