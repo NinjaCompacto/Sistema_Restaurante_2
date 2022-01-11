@@ -18,9 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activitys.InfoPedidoHistoricoGarcomActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Activitys.HistoricoPedidosGarçomActivity"
+            android:exported="true"
+            android:label="Histórico" />
+        <activity
             android:name=".Activitys.HistoricoPedidosActivity"
             android:exported="true"
-            android:label="Histórico"/>
+            android:label="Histórico" />
         <activity
             android:name=".Activitys.PedidoGarcomActivity"
             android:exported="true"
@@ -108,7 +115,7 @@
         <activity
             android:name=".Funcoes.CozinhaActivity"
             android:exported="true"
-            android:label="Sistema Restaurante"/>
+            android:label="Sistema Restaurante" />
         <activity
             android:name=".Cadastro_e_login.FotoCadastroActivity"
             android:exported="true"

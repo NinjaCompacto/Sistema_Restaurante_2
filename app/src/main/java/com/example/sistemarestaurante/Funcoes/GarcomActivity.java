@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.example.sistemarestaurante.Activitys.AtualizarNomeCliente;
 import com.example.sistemarestaurante.Activitys.CadastrarNomeCliente;
 import com.example.sistemarestaurante.Activitys.CadastroMesaActivity;
+import com.example.sistemarestaurante.Activitys.HistoricoPedidosGarçomActivity;
 import com.example.sistemarestaurante.Activitys.PedidoGarcomActivity;
 import com.example.sistemarestaurante.Adapters.MesasAdapter;
 import com.example.sistemarestaurante.Cadastro_e_login.LoginActivity;
@@ -122,6 +123,10 @@ public class GarcomActivity extends AppCompatActivity {
                Intent imesa = new Intent(GarcomActivity.this,CadastroMesaActivity.class);
                //abrir a tela de cadastro de novas mesas
                startActivity(imesa);
+                break;
+            case R.id.menuHistorico:
+                Intent ihist = new Intent(GarcomActivity.this,HistoricoPedidosGarçomActivity.class);
+                startActivity(ihist);
                 break;
         }
         return super.onOptionsItemSelected(item);

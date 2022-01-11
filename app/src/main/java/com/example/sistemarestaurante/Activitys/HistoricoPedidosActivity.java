@@ -45,8 +45,6 @@ public class HistoricoPedidosActivity extends AppCompatActivity {
     private List<Pedido> listPedidosFiltradosBebida = new ArrayList<>();
     private Usuario usuario;
 
-    public HistoricoPedidosActivity() {
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +76,12 @@ public class HistoricoPedidosActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mesaref.removeEventListener(valueEventListener);
     }
 
     private void configuraRecycler(RecyclerView recyclerView) {

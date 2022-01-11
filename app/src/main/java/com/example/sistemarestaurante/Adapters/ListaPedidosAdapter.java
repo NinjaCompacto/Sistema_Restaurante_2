@@ -19,6 +19,7 @@ import com.example.sistemarestaurante.Model.PratoPedido;
 import com.example.sistemarestaurante.R;
 import com.google.firebase.database.DatabaseReference;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapter.MyViewHolder> {
@@ -81,6 +82,10 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
                 holder.textStatus.setText("Status: Pronto");
             }
         }
+        if (função.equals("garcom")){
+            holder.textStatus.setTextColor(Color.GREEN);
+            holder.textStatus.setText("Status: Pronto");
+        }
 
         //configurando texto de informações do pedido
         if (função.equals("cozinha")) {
@@ -99,6 +104,16 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
                     textinfo = bebidaPedida.getBebida().getNomeBebida();
                 } else {
                     textinfo = textinfo + ", " + bebidaPedida.getBebida().getNomeBebida();
+                }
+            }
+            holder.textinfoPrato.setText(textinfo);
+        }
+        if (função.equals("garcom")){
+            for (PratoPedido pratoPedido : pedido.getComida()) {
+                if (textinfo == null) {
+                    textinfo = pratoPedido.getPrato().getNomePrato();
+                } else {
+                    textinfo = textinfo + ", " + pratoPedido.getPrato().getNomePrato();
                 }
             }
             holder.textinfoPrato.setText(textinfo);
