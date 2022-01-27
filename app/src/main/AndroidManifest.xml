@@ -18,6 +18,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Adapters.HistoricoPedidosCaixaAdapater"
+            android:exported="true" />
+        <activity
+            android:name=".Activitys.HistoricoPedidosCaixaActivity"
+            android:exported="true"
+            android:parentActivityName=".Funcoes.CaixaActivity" />
+        <activity
+            android:name=".Adapters.MesasCaixaAdapter"
+            android:exported="true" />
+        <activity
             android:name=".Activitys.InfoPedidoHistoricoGarcomActivity"
             android:exported="true" />
         <activity

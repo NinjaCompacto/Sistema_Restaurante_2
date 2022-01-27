@@ -4,10 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Funcoes.CaixaActivity">
+    tools:context=".Activitys.HistoricoPedidosCaixaActivity">
+
+    <TextView
+        android:id="@+id/textInfoMesaHistoricoCixa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mesa: 2"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMesasCaixa"
+        android:id="@+id/recyclerHistoricoMesaCaixa"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
@@ -16,10 +28,9 @@
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
-        android:elevation="5dp"
-        android:padding="10dp"
+        android:padding="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/textInfoMesaHistoricoCixa" />
 </androidx.constraintlayout.widget.ConstraintLayout>

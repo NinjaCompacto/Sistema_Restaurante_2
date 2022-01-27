@@ -132,7 +132,6 @@ public class ListaPedidosAdapter extends RecyclerView.Adapter<ListaPedidosAdapte
 
 
         TextView textPedido, textStatus,textinfoPrato,textTime;
-        Button buttonPreparando, buttonPronto;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);

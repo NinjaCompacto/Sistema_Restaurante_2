@@ -47,7 +47,7 @@ public class GarcomActivity extends AppCompatActivity {
     private DatabaseReference mesasref;
     private ValueEventListener valueEventListener;
     //model
-    List<Mesa> listaMesas = new ArrayList<>();
+    private List<Mesa> listaMesas = new ArrayList<>();
 
 
     @Override
