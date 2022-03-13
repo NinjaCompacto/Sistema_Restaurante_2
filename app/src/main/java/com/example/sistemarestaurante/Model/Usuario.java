@@ -9,6 +9,7 @@ import com.google.firebase.database.Exclude;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+
     private String senha;
     private String nome;
     private String email;

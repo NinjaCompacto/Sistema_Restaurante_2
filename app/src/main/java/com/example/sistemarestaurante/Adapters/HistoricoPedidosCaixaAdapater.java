@@ -97,62 +97,57 @@ public class HistoricoPedidosCaixaAdapater extends RecyclerView.Adapter<Historic
             }
         }
 
-        //configura texto informação
-        if (pedido.getBebida() == null){
+        List<BebidaPedida> listBebidas = pedido.getBebida();
+        List<PratoPedido> listPratos = pedido.getComida();
+
+        if (listPratos != null){
             textInfo = textInfo + "Comida: ";
-            for (PratoPedido pratoPedido : pedido.getComida()){
-                textInfo = textInfo + pratoPedido.getPrato().getNomePrato() + ", ";
+
+            for (PratoPedido pratoPedido : listPratos){
+                String nome = pratoPedido.getPrato().getNomePrato();
+                textInfo = textInfo + nome + ", ";
             }
-            holder.textInfo.setText(textInfo);
         }
-        if (pedido.getComida() == null){
-            textInfo = textInfo + "Bebida: ";
-            for (BebidaPedida bebidaPedida : pedido.getBebida()){
-                textInfo = textInfo + bebidaPedida.getBebida().getNomeBebida() + ", ";
+        if (listBebidas !=  null){
+            textInfo = textInfo + "Bebidas: ";
+            for (BebidaPedida bebidaPedida : listBebidas){
+                String nome = bebidaPedida.getBebida().getNomeBebida();
+                textInfo = textInfo + nome + ", ";
             }
-            holder.textInfo.setText(textInfo);
         }
-        if(pedido.getBebida() != null && pedido.getComida() != null) {
-            textInfo = textInfo + "Comida: ";
-            for (PratoPedido pratoPedido : pedido.getComida()){
-                textInfo = textInfo + pratoPedido.getPrato().getNomePrato() + ", ";
-            }
-            textInfo = textInfo + "Bebida: ";
-            for (BebidaPedida bebidaPedida : pedido.getBebida()){
-                textInfo = textInfo + bebidaPedida.getBebida().getNomeBebida() + ", ";
-            }
-            holder.textInfo.setText(textInfo);
-        }
+        holder.textInfo.setText(textInfo);
 
 
         //configura texto de Valor
         DecimalFormat df =  new DecimalFormat("#####.00");
         String valor = "R$" + String.valueOf(df.format(calcularValorPedido(pedido)));
         holder.textValor.setText(valor);
+        textInfo = "";
 
 
     }
 
     public Float calcularValorPedido (@NonNull Pedido pedido) {
         float valorPedido = 0;
-        if (pedido.getBebida() == null){
-            for (PratoPedido pratoPedido : pedido.getComida()){
-                valorPedido = valorPedido + Float.valueOf(pratoPedido.getPrato().getValor());
+
+        List <BebidaPedida> listBebidasPedidas = pedido.getBebida();
+        List <PratoPedido> listPratosPedidos = pedido.getComida();
+
+        if (listPratosPedidos != null){
+            for (PratoPedido  pratoPedido : listPratosPedidos){
+                float valorIndividual = Float.parseFloat(pratoPedido.getPrato().getValor());
+                int quantidade = pratoPedido.getQuantidade();
+                valorPedido = valorPedido + (quantidade*valorIndividual);
             }
         }
-        else if (pedido.getComida() == null){
-            for(BebidaPedida bebidaPedida : pedido.getBebida()){
-                valorPedido = valorPedido + Float.valueOf(bebidaPedida.getBebida().getValor());
+        if (listBebidasPedidas != null){
+            for (BebidaPedida bebidaPedida : listBebidasPedidas){
+                float valorIndividual = Float.parseFloat(bebidaPedida.getBebida().getValor());
+                int quantidade = bebidaPedida.getQuantidade();
+                valorPedido = valorPedido + (quantidade*valorIndividual);
             }
         }
-        else{
-            for (PratoPedido pratoPedido : pedido.getComida()){
-                valorPedido = valorPedido + Float.valueOf(pratoPedido.getPrato().getValor());
-            }
-            for(BebidaPedida bebidaPedida : pedido.getBebida()){
-                valorPedido = valorPedido + Float.valueOf(bebidaPedida.getBebida().getValor());
-            }
-        }
+
         return  valorPedido;
     }
 

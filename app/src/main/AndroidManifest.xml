@@ -18,6 +18,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".Activitys.FecharContaCaixaActivity"
+            android:exported="true"
+            android:parentActivityName=".Funcoes.CaixaActivity"/>
+        <activity
             android:name=".Adapters.HistoricoPedidosCaixaAdapater"
             android:exported="true" />
         <activity

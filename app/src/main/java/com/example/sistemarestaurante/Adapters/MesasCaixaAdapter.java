@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.sistemarestaurante.Activitys.FecharContaCaixaActivity;
 import com.example.sistemarestaurante.Activitys.HistoricoPedidosCaixaActivity;
 import com.example.sistemarestaurante.Model.Mesa;
 import com.example.sistemarestaurante.R;
@@ -47,6 +48,15 @@ public class MesasCaixaAdapter extends RecyclerView.Adapter<MesasCaixaAdapter.My
              @Override
              public void onClick(View view) {
                  Intent i = new Intent(context, HistoricoPedidosCaixaActivity.class);
+                 i.putExtra("mesa", mesa);
+                 view.getContext().startActivity(i);
+             }
+         });
+
+         holder.buttonFecharConta.setOnClickListener(new View.OnClickListener() {
+             @Override
+             public void onClick(View view) {
+                 Intent i = new Intent(context, FecharContaCaixaActivity.class);
                  i.putExtra("mesa", mesa);
                  view.getContext().startActivity(i);
              }
