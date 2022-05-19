@@ -3,6 +3,7 @@ package com.example.sistemarestaurante.Cadastro_e_login;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sistemarestaurante.Firebase.ConfiguracaoFirebase;
+import com.example.sistemarestaurante.Helper.Permissao;
 import com.example.sistemarestaurante.MainActivity;
 import com.example.sistemarestaurante.Model.Usuario;
 import com.example.sistemarestaurante.R;
@@ -30,7 +32,11 @@ public class LoginActivity extends AppCompatActivity {
     private TextView textViewCadastrase;
     private EditText editTextEmail, editTextSenha;
     private Button buttonEntrar;
-
+    private String[] permissoesNecessarias = new String[]{
+            Manifest.permission.CAMERA,
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         editTextEmail = findViewById(R.id.editTextEmailLogin);
         editTextSenha = findViewById(R.id.editTextSenhaLogin);
         buttonEntrar = findViewById(R.id.buttonEntrar);
+        Permissao.validarPermissoes(permissoesNecessarias,this,1);
 
         //abre a tela de cadastro
         textViewCadastrase.setOnClickListener(new View.OnClickListener() {

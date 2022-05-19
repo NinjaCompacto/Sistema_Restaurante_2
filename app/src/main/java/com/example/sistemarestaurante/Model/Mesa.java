@@ -41,5 +41,10 @@ public class Mesa implements Serializable {
     public void setPedidos(List<Pedido> pedidos) {
         this.pedidos = pedidos;
     }
+
+    public void  resetMesa (){
+        this.nomeCliente = "Nenhum Cliente";
+        pedidos = null;
+    }
 }
 
